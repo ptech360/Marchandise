@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registration</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="registration" (ngModelChange)="getSection($event)">
+      <ion-segment-button value="employee">
+        Employee
+      </ion-segment-button>
+      <ion-segment-button value="consumer">
+        Consumer
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="registration">
+    <!-- employee-->
+
+    <ion-list *ngSwitchCase="'employee'">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label floating>First Name</ion-label>
+          <ion-input formControlName="firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Last Name</ion-label>
+          <ion-input formControlName="lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Gender</ion-label>
+          <ion-select formControlName="gender">
+            <ion-option value="male">Male</ion-option>
+            <ion-option value="female">Female</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Contact No</ion-label>
+          <ion-input type="tel" formControlName="contactNo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Date of Birth</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" formControlName="dob"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Confirm Password</ion-label>
+          <ion-input type="password" formControlName="confirmPassword"></ion-input>
+        </ion-item>
+        <div padding>
+          <button ion-button block>Submit</button>
+        </div>
+      </form>
+    </ion-list>
+    <!-- consumer-->
+    <ion-list *ngSwitchCase="'consumer'">
+      <form [formGroup]="consumerForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label floating>First Name</ion-label>
+          <ion-input formControlName="firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Last Name</ion-label>
+          <ion-input formControlName="lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Gender</ion-label>
+          <ion-select formControlName="gender">
+            <ion-option value="male">Male</ion-option>
+            <ion-option value="female">Female</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Contact No</ion-label>
+          <ion-input type="tel" formControlName="contactNo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Date of Birth</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" formControlName="dob"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Confirm Password</ion-label>
+          <ion-input type="password" formControlName="confirmPassword"></ion-input>
+        </ion-item>
+        <div padding>
+          <button ion-button block>Submit</button>
+        </div>
+      </form>
+    </ion-list>
+
+  </div>
+
+</ion-content>
